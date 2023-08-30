@@ -13,7 +13,7 @@ export async function getStaticProps() {
 export default function HeaderMain(props: any) {
   const { title } = props;
     const [open, isOpen] = useState(false)
-    const [selected, setSelected] = useState('league-a')
+    const [selected, setSelected] = useState('')
     const style = "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500";
     return (
         
@@ -34,6 +34,11 @@ export default function HeaderMain(props: any) {
   </div>
   <div className={`items-center justify-between ${open ? 'transition duration-300' : 'transition duration-300 hidden'} w-full md:flex md:w-auto md:order-1`} id="navbar-sticky">
     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
+    <li>
+        <Link className={`flex py-2 pl-3 pr-4  text-white rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 
+        transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300
+        ${selected === '' && 'font-'}`} href='/' onClick={() => {setSelected(''); isOpen(!open)}}>Home</Link>
+      </li>
       <li>
         <Link className={`flex py-2 pl-3 pr-4  text-white rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 
         transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300
