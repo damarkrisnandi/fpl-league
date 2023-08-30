@@ -30,7 +30,7 @@ export default async function Home() {
   const dataSuper = standingsSuper.find(o => o.rank === 1);
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
-      <DivisionBound message={<h1 className="text-3xl">FPLMGM's Summary</h1>}></DivisionBound>
+      <h1 className="text-3xl font-semibold">FPLMGM's Summary</h1>
       
       <h2 className="text-2xl mt-3">League A Leader</h2>
       <Card 
