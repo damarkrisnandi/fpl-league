@@ -6,7 +6,7 @@ import { urlImageAccess } from '@/utils';
 
 export default async function Home() {
   let page = 1;
-  const leagueId = '633893';
+  const leagueId = '633913';
   let standings: any[] = [];
 
   const elements = (await getBootstrap() as any).elements;
@@ -33,6 +33,7 @@ export default async function Home() {
             manager={data.player_name}
             points={data.total}
             id={data.entry}
+            color={'bg-green-200'}
           />
         ) : (
           <CardSecondary 
@@ -42,7 +43,7 @@ export default async function Home() {
             manager={data.player_name}
             points={data.total}
             id={data.entry}
-            color={data.rank > 25 ? 'bg-red-200' : (data.rank == 25 ? 'bg-yellow-200' : 'bg-white')}
+            color={data.rank < 6 ? 'bg-green-200' : (data.rank == 6 ? 'bg-yellow-200' : 'bg-white')}
           />
         ) 
       )        
