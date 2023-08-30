@@ -33,6 +33,7 @@ export default async function Home() {
             manager={data.player_name}
             points={data.total}
             id={data.entry}
+            key={data.entry}
           />
         ) : (
           <CardSecondary 
@@ -42,6 +43,7 @@ export default async function Home() {
             manager={data.player_name}
             points={data.total}
             id={data.entry}
+            key={data.entry}
             color={data.rank > 25 ? 'bg-red-200' : (data.rank == 25 ? 'bg-yellow-200' : 'bg-white')}
           />
         ) 

@@ -33,6 +33,7 @@ export default async function Home() {
             manager={data.player_name}
             points={data.total}
             id={data.entry}
+            key={data.entry}
             color={'bg-green-200'}
           />
         ) : (
@@ -43,6 +44,7 @@ export default async function Home() {
             manager={data.player_name}
             points={data.total}
             id={data.entry}
+            key={data.entry}
             color={data.rank < 6 ? 'bg-green-200' : (data.rank == 6 ? 'bg-yellow-200' : 'bg-white')}
           />
         ) 
