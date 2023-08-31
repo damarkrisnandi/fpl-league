@@ -30,7 +30,6 @@ export default async function Home() {
   const dataSuper = standingsSuper && standingsSuper.length > 0 && standingsSuper.find(o => o.rank === 1);
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
-      <h1 className="text-3xl font-semibold">FPLMGM&apos;s Summary</h1>
       
       <CardSummary
           // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
