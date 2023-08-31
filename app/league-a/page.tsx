@@ -44,7 +44,7 @@ export default async function Home() {
             points={data.total}
             id={data.entry}
             key={data.entry}
-            color={data.rank > 25 ? 'bg-red-200' : (data.rank == 25 ? 'bg-yellow-200' : 'bg-white')}
+            color={data.rank > 25 ? 'bg-red-200 dark:bg-red-700' : (data.rank == 25 ? 'bg-yellow-200 dark:bg-yellow-700' : 'bg-white')}
           />
         ) 
       )        
