@@ -14,8 +14,8 @@ export default function CardSummary(props: any) {
                 {/* <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5> */}
                 <div className='mr-10'>
                     <div className="flex w-full justify-between">
-                    <p className="mb-2 text-2xl tracking-tight font-bold text-gray-900 dark:text-white">{ league }</p>
-                    <p className="ml-2 mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{ `#` }{ position }  </p>
+                    <p className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white">{ league }</p>
+                    <p className="ml-2 mb-2 text-xl tracking-tight text-gray-900 dark:text-white">{ `#` }{ position }  </p>
                     <Chevron rank={position} last_rank={last_rank}/>
                     <p className="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{ Math.abs(position - last_rank) }</p>
                     </div>
