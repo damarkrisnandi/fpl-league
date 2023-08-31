@@ -2,6 +2,7 @@
 import { useState } from "react"
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 
 export async function getStaticProps() {
@@ -16,6 +17,15 @@ export default function HeaderMain(props: any) {
   const { title } = props;
   const [open, isOpen] = useState(false)
   const [selected, setSelected] = useState('')
+  const pathname = usePathname();
+  const mapHeader = {
+    '/': ':Summary',
+    '/league-a': ':League A',
+    '/league-b': ':League B',
+    '/league-super': ':Super League'
+  }
+
+  const subtitle = mapHeader[pathname] || '';
   
   return (
         
@@ -24,7 +34,7 @@ export default function HeaderMain(props: any) {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="/" className="flex items-center">
           {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo"> */}
-          <span className="self-center text-lg font-semibold whitespace-nowrap text-white dark:text-white">{ title }</span>
+          <span className="self-center text-lg font-semibold whitespace-nowrap text-white dark:text-white">{ title }{ subtitle }</span>
       </a>
       <div className="flex md:order-2">
           <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false"
