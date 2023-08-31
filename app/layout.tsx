@@ -1,8 +1,10 @@
+'use client'
 import HeaderMain from '@/components/layout/header'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import BottomNav from '@/components/layout/bottomNav'
 import { getLeagueData } from '@/services'
+import { usePathname } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,11 +18,18 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const pathname = usePathname();
+  const mapHeader = {
+    '/': 'FPLMGM:Summary',
+    '/league-a': 'FPLMGM:League A',
+    '/league-b': 'FPLMGM:League B',
+    '/league-super': 'FPLMGM:Super League'
+  }
   let league: any = { league: { name: 'FPLMGM'}};
   return (
     <html lang="en">
       <body className={inter.className}>
-        <HeaderMain title={league.league.name}/>
+        <HeaderMain title={mapHeader[pathname] || 'FPLMGM'}/>
         {children}
         {/* <BottomNav /> */}
       </body>

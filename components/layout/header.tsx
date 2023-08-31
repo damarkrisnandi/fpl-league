@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react"
 import Link from 'next/link'
+import { useRouter } from 'next/router';
+
 
 export async function getStaticProps() {
   return {
@@ -12,9 +14,10 @@ export async function getStaticProps() {
 
 export default function HeaderMain(props: any) {
   const { title } = props;
-    const [open, isOpen] = useState(false)
-    const [selected, setSelected] = useState('')
-    return (
+  const [open, isOpen] = useState(false)
+  const [selected, setSelected] = useState('')
+  
+  return (
         
 
     <nav className="bg-fuchsia-900 dark:bg-fuchsia-200 fixed w-full z-20 top-0 left-0 border-b">
