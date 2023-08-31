@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
         {
-        standings.map((data: any) => 
+        standings && standings.length > 0 && standings.map((data: any) => 
         data.rank_sort === 1 ? (
           <Card 
             imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}

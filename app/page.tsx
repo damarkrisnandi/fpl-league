@@ -1,5 +1,5 @@
-import CardSecondary from '@/components/layout/carcSec';
-import Card from '@/components/layout/card';
+
+import CardSummary from '@/components/layout/cardSummary';
 import DivisionBound from '@/components/layout/divisionBound';
 import { getBootstrap, getLeagueData } from '@/services'
 import { urlImageAccess } from '@/utils';
@@ -25,43 +25,44 @@ export default async function Home() {
   standingsSuper = [...leagueSuper.standings.results];
   
 
-  const dataA = standingsA.find(o => o.rank === 1);
-  const dataB = standingsB.find(o => o.rank === 1);
-  const dataSuper = standingsSuper.find(o => o.rank === 1);
+  const dataA = standingsA && standingsA.length > 0 && standingsA.find(o => o.rank === 1);
+  const dataB = standingsB && standingsB.length > 0 && standingsB.find(o => o.rank === 1);
+  const dataSuper = standingsSuper && standingsSuper.length > 0 && standingsSuper.find(o => o.rank === 1);
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
       <h1 className="text-3xl font-semibold">FPLMGM&apos;s Summary</h1>
       
-      <h2 className="text-2xl mt-3">League A Leader</h2>
-      <Card 
+      <CardSummary
           imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
-          position={dataA.rank}
-          last_rank={dataA.last_rank}
-          team={dataA.entry_name}
-          manager={dataA.player_name}
-          points={dataA.total}
-          id={dataA.entry}
+          league='League A'
+          position={dataA ? dataA.rank : 1}
+          last_rank={dataA ? dataA.last_rank : 1}
+          team={dataA ? dataA.entry_name : 'N/A'}
+          manager={dataA ? dataA.player_name : 'N/A'}
+          points={dataA ? dataA.total : 0}
+          id={dataA ? dataA.entry : 'N/A'}
         />
 
-    <h2 className="text-2xl mt-3">League B Leader</h2>
-    <Card 
+    <CardSummary 
         imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
-        position={dataB.rank}
-        last_rank={dataB.last_rank}
-        team={dataB.entry_name}
-        manager={dataB.player_name}
-        points={dataB.total}
-        id={dataB.entry}
+        league='League B'
+        position={dataB ? dataB.rank : 1}
+        last_rank={dataB ? dataB.last_rank : 1}
+        team={dataB ? dataB.entry_name : 'N/A'}
+        manager={dataB ? dataB.player_name : 'N/A'}
+        points={dataB ? dataB.total : 0}
+        id={dataB ? dataB.entry : 'N/A'}
       />
-    <h2 className="text-2xl mt-3">League Super Leader</h2>
-    <Card 
+      
+    <CardSummary 
         imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
-        position={dataSuper.rank}
-        last_rank={dataSuper.last_rank}
-        team={dataSuper.entry_name}
-        manager={dataSuper.player_name}
-        points={dataSuper.total}
-        id={dataSuper.entry}
+        league='Super League'
+        position={dataSuper ? dataSuper.rank : 1}
+        last_rank={dataSuper ? dataSuper.last_rank : 1}
+        team={dataSuper ? dataSuper.entry_name : 'N/A'}
+        manager={dataSuper ? dataSuper.player_name : 'N/A'}
+        points={dataSuper ? dataSuper.total : 0}
+        id={dataSuper ? dataSuper.entry : 'N/A'}
       />
     </main>
   )
