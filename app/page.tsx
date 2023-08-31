@@ -28,7 +28,7 @@ export default async function Home() {
   const dataA = standingsA && standingsA.length > 0 && standingsA.find(o => o.rank === 1);
   const dataB = standingsB && standingsB.length > 0 && standingsB.find(o => o.rank === 1);
   const dataSuper = standingsSuper && standingsSuper.length > 0 && standingsSuper.find(o => o.rank === 1);
-  const dataMotwA = standingsA && standingsA.length > 0 && standingsA.find(o => o.event_total === Math.max(...standingsA.map(a => a.standings.results.event_total)));
+  const dataMotwA = standingsA && standingsA.length > 0 && standingsA.find(o => o.event_total === Math.max(...standingsA.map(a => a.event_total)));
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
       <GameWeek></GameWeek>
