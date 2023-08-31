@@ -1,18 +1,31 @@
+import axios from 'axios';
 const api_url = 'http://localhost:3000/api';
 const managerInfoApi = `${api_url}/entry`;
 const headers = {'Content-Type': 'application/json'};
 
 const getResult = (url: string) => {
     const result = new Promise((resolve, reject) => {
-        fetch(url, {})
-        .then(data => {
-            data.json().then(json => {
-                resolve(json)
-            })
-        })
+        // fetch(url, {})
+        // .then(data => {
+        //     data.json().then(json => {
+        //         resolve(json)
+        //     })
+        // })
         // .catch(() => {
         //     reject('error call axios')
         // })
+        axios.get(url)
+        .then(function (response) {
+            // handle success
+            resolve(response.data)
+        })
+        .catch(function (error) {
+            // handle error
+            resolve({ errMessage: error })
+        })
+        .finally(function () {
+            // always executed
+        });
     })
     
     return result
