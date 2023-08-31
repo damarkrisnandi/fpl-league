@@ -49,7 +49,7 @@ export default async function Home() {
           last_rank={dataMotwA ? dataMotwA.last_rank : 1}
           team={dataMotwA ? dataMotwA.entry_name : 'N/A'}
           manager={dataMotwA ? dataMotwA.player_name : 'N/A'}
-          points={dataMotwA ? dataMotwA.total : 0}
+          points={dataMotwA ? dataMotwA.event_total : 0}
           id={dataMotwA ? dataMotwA.entry : 'N/A'}
         />
     <CardSummary 
