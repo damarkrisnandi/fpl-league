@@ -25,7 +25,7 @@ export default function HeaderMain(props: any) {
     '/league-super': ':Super League'
   }
 
-  const subtitle = mapHeader[pathname] || '';
+  const subtitle = pathname ? mapHeader[pathname] || '' : '';
   
   return (
         
