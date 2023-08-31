@@ -1,5 +1,5 @@
 import axios from 'axios';
-const api_url = 'http://localhost:3000/api';
+const api_url = 'https://fpl-league-theta.vercel.app/api';
 const managerInfoApi = `${api_url}/entry`;
 const headers = {'Content-Type': 'application/json'};
 
