@@ -4,10 +4,8 @@ import { urlImageAccess } from "@/utils";
 
 export default async function Page(props: any) {
   const { params } = props;
-  console.log(props.params.slug);
 
   const manager: any = await getManagerInfo(props.params.slug)
-  console.log(manager);
   const bootstrap: any = await getBootstrap();
   const playerReferences: any = bootstrap.elements;
   const picksData: any = await getPicksData(props.params.slug, '1');
@@ -18,7 +16,6 @@ export default async function Page(props: any) {
       ), ...obj}}
     )
   ];
-  console.log(manager);
   //manager.current_event
 
   const positions = [1, 2, 3, 4]
