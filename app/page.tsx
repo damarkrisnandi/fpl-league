@@ -1,6 +1,6 @@
 
 import CardSummary from '@/components/layout/cardSummary';
-import DivisionBound from '@/components/layout/divisionBound';
+import GameWeek from '@/components/shared/GameWeek';
 import { getBootstrap, getLeagueData } from '@/services'
 import { urlImageAccess } from '@/utils';
 
@@ -30,7 +30,7 @@ export default async function Home() {
   const dataSuper = standingsSuper && standingsSuper.length > 0 && standingsSuper.find(o => o.rank === 1);
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
-      
+      <GameWeek></GameWeek>
       <CardSummary
           // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
           league='League A'
