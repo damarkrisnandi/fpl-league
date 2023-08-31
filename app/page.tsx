@@ -17,12 +17,6 @@ export default async function Home() {
   
   let leagueA: any = (await getLeagueData(leagueAId, `${page}`));
   standingsA = [...leagueA.standings.results];
-  
-  while (leagueA.standings.has_next) {
-    page++;
-    leagueA = (await getLeagueData(leagueAId, `${page}`));
-    standingsA = [...standingsA, ...leagueA.standings.results];
-  }
 
   let leagueB: any = (await getLeagueData(leagueBId, `${page}`));
   standingsB = [...leagueB.standings.results];
