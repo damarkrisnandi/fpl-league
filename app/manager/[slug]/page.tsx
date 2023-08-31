@@ -8,7 +8,7 @@ export default async function Page(props: any) {
   const manager: any = await getManagerInfo(props.params.slug)
   const bootstrap: any = await getBootstrap();
   const playerReferences: any = bootstrap.elements;
-  const picksData: any = await getPicksData(props.params.slug, '1');
+  const picksData: any = await getPicksData(props.params.slug, `${manager.current_event}`);
   const picksFullData: any[] = [
     ...picksData.picks.map(
       (obj: any) => { return {...playerReferences.find(
@@ -16,7 +16,6 @@ export default async function Page(props: any) {
       ), ...obj}}
     )
   ];
-  console.log(picksFullData, picksFullData.length);
   //manager.current_event
 
   const positions = [1, 2, 3, 4]
