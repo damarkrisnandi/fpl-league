@@ -23,9 +23,9 @@ const getResult = (url: string) => {
             // handle error
             resolve({ errMessage: error })
         })
-        .finally(function () {
-            // always executed
-        });
+        // .finally(function () {
+        //     // always executed
+        // });
     })
     
     return result
