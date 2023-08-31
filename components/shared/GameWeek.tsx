@@ -1,7 +1,7 @@
 import { getBootstrap, getFixtures } from '@/services'
 export default async function GameWeek() {
-    const bootstrap: any[] = await getBootstrap();
-    const fixtures: any[] = await getFixtures();
+    const bootstrap = await getBootstrap();
+    const fixtures = await getFixtures();
     
 
     const gameweek = (bootstrap.events.find(data => data.is_current)).id;
