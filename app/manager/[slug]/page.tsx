@@ -5,25 +5,26 @@ import { urlImageAccess } from "@/utils";
 export default async function Page(props: any) {
   const { params } = props;
 
-  // const manager: any = await getManagerInfo(props.params.slug)
-  // const bootstrap: any = await getBootstrap();
-  // const playerReferences: any = bootstrap.elements;
-  // const picksData: any = await getPicksData(props.params.slug, '1');
+  const manager: any = await getManagerInfo(props.params.slug)
+  const bootstrap: any = await getBootstrap();
+  const playerReferences: any = bootstrap.elements;
+  const picksData: any = await getPicksData(props.params.slug, '1');
   const picksFullData: any[] = [
-    // ...picksData.picks.map(
-    //   (obj: any) => { return {...playerReferences.find(
-    //     (ref:any) => obj.element === ref.id
-    //   ), ...obj}}
-    // )
+    ...picksData.picks.map(
+      (obj: any) => { return {...playerReferences.find(
+        (ref:any) => obj.element === ref.id
+      ), ...obj}}
+    )
   ];
+  console.log(picksFullData, picksFullData.length);
   //manager.current_event
 
   const positions = [1, 2, 3, 4]
   
   return (
-    <div className="bg-green-700 flex flex-col justify-center items-center pt-24 pb-24">
-      {/* <a href="#" className="flex flex-col max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-10">
-        <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{manager.current_event}</h5>
+    <div className=" bg-green-700 flex flex-col justify-center items-center pt-24 pb-24">
+      <a href="#" className="flex flex-col max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-10">
+        <h5 className="mb-2 text-3xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{manager.summary_event_points}</h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">points</p>
       </a>
       {positions.map((position: any) => (
@@ -48,12 +49,11 @@ export default async function Page(props: any) {
         }
         </div>
       ))}
-      <span className="mt-20 bg-none text-center text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-white">bench</span>
-      <div  className='w-11/12 m-auto flex flex-row items-center justify-center'>
+      <div  className={`mt-12 flex items-center justify-between bg-white dark:bg-gray-800 border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
       {
         [11, 12, 13, 14].map((i: number) => (
           <PlayerCard
-            key={picksFullData[i].id} 
+            key={i} 
             name={picksFullData[i].web_name}
             imgUrl={urlImageAccess(picksFullData[i].photo)}
             points={picksFullData[i].event_points}
@@ -65,7 +65,7 @@ export default async function Page(props: any) {
       }
         
       
-      </div> */}
+      </div>
     </div>
   );
 }
