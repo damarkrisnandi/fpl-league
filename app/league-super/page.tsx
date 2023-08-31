@@ -34,7 +34,7 @@ export default async function Home() {
             points={data.total}
             id={data.entry}
             key={data.entry}
-            color={'bg-green-200'}
+            color={'bg-green-200 dark:bg-green-700'}
           />
         ) : (
           <CardSecondary 
@@ -45,7 +45,7 @@ export default async function Home() {
             points={data.total}
             id={data.entry}
             key={data.entry}
-            color={data.rank < 11 ? 'bg-green-200' : 'bg-white'}
+            color={data.rank < 11 ? 'bg-green-200 dark:bg-green-700' : 'bg-white dark:bg-gray-800'}
           />
         ) 
       )        
