@@ -26,7 +26,7 @@ export default async function Home() {
         standings && standings.length > 0 && standings.map((data: any) => 
         data.rank_sort === 1 ? (
           <Card 
-            imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
+            // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
             position={data.rank}
             last_rank={data.last_rank}
             team={data.entry_name}

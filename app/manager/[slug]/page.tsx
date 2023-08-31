@@ -10,7 +10,7 @@ export default async function Page(props: any) {
   console.log(manager);
   const bootstrap: any = await getBootstrap();
   const playerReferences: any = bootstrap.elements;
-  const picksData: any = await getPicksData(props.params.slug, '38');
+  const picksData: any = await getPicksData(props.params.slug, '1');
   const picksFullData: any[] = [
     ...picksData.picks.map(
       (obj: any) => { return {...playerReferences.find(
@@ -25,12 +25,12 @@ export default async function Page(props: any) {
   
   return (
     <div className="bg-green-700 flex flex-col justify-center items-center pt-24 pb-24">
-      {/* <a href="#" className="flex flex-col max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-10">
+      <a href="#" className="flex flex-col max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-10">
         <h5 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">{manager.current_event}</h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">points</p>
       </a>
       {positions.map((position: any) => (
-        <div  className='w-11/12 m-auto flex flex-row items-center justify-center'>
+        <div key={position} className='w-11/12 m-auto flex flex-row items-center justify-center'>
         {
           picksFullData
           .slice(0, 11)
@@ -38,6 +38,7 @@ export default async function Page(props: any) {
           .map(data => (
             
               <PlayerCard 
+                key={data.id}
                 name={data.web_name}
                 imgUrl={urlImageAccess(data.photo)}
                 points={data.event_points}
@@ -54,7 +55,8 @@ export default async function Page(props: any) {
       <div  className='w-11/12 m-auto flex flex-row items-center justify-center'>
       {
         [11, 12, 13, 14].map((i: number) => (
-          <PlayerCard 
+          <PlayerCard
+            key={picksFullData[i].id} 
             name={picksFullData[i].web_name}
             imgUrl={urlImageAccess(picksFullData[i].photo)}
             points={picksFullData[i].event_points}
@@ -66,7 +68,7 @@ export default async function Page(props: any) {
       }
         
       
-      </div> */}
+      </div>
     </div>
   );
 }

@@ -33,7 +33,7 @@ export default async function Home() {
       <h1 className="text-3xl font-semibold">FPLMGM&apos;s Summary</h1>
       
       <CardSummary
-          imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
+          // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
           league='League A'
           position={dataA ? dataA.rank : 1}
           last_rank={dataA ? dataA.last_rank : 1}
@@ -44,7 +44,7 @@ export default async function Home() {
         />
 
     <CardSummary 
-        imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
+        // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
         league='League B'
         position={dataB ? dataB.rank : 1}
         last_rank={dataB ? dataB.last_rank : 1}
@@ -53,9 +53,9 @@ export default async function Home() {
         points={dataB ? dataB.total : 0}
         id={dataB ? dataB.entry : 'N/A'}
       />
-      
+
     <CardSummary 
-        imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
+        // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
         league='Super League'
         position={dataSuper ? dataSuper.rank : 1}
         last_rank={dataSuper ? dataSuper.last_rank : 1}
