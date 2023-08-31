@@ -18,14 +18,20 @@ export default function HeaderMain(props: any) {
   const [open, isOpen] = useState(false)
   const [selected, setSelected] = useState('')
   const pathname = usePathname();
-  const mapHeader = {
-    '/': ':Summary',
-    '/league-a': ':League A',
-    '/league-b': ':League B',
-    '/league-super': ':Super League'
-  }
+  // const mapHeader = {
+  //   '/': ':Summary',
+  //   '/league-a': ':League A',
+  //   '/league-b': ':League B',
+  //   '/league-super': ':Super League'
+  // }
 
-  const subtitle = pathname ? mapHeader[pathname] || '' : '';
+  const mapHeader = new Map<string, string>();
+    mapHeader.set('/', ':Summary');
+    mapHeader.set('/league-a', ':League A');
+    mapHeader.set('/league-b', ':League B');
+    mapHeader.set('/league-super', ':Super League')
+
+  const subtitle = pathname ? mapHeader.get(pathname) || '' : '';
   
   return (
         
