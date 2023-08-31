@@ -18,6 +18,8 @@ export default async function Page(props: any) {
   ];
   //manager.current_event
 
+  console.log(picksFullData);
+
   const positions = [1, 2, 3, 4]
   
   return (
@@ -42,6 +44,7 @@ export default async function Page(props: any) {
                 position={data.element_type}
                 isCaptain={data.is_captain}
                 isViceCaptain={data.is_vice_captain}
+                multiplier={data.multiplier}
               />
             
           ))

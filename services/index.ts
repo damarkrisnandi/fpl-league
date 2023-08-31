@@ -55,3 +55,18 @@ export const leagueHistory = [
         leagueSuper: ''
     },
 ]
+
+export const getCurrentLeague = () => {
+    const currentMonth = (new Date()).getMonth() + 1;
+    const currentYear = (new Date()).getFullYear();
+    let currentLeague = {}
+    if (currentMonth >= 8) {
+        currentLeague = leagueHistory.find(l => l.seasonFrom === currentYear)
+    } else {
+        currentLeague = leagueHistory.find(l => l.seasonUntil === currentYear)
+    }
+
+    return {
+        ...currentLeague
+    }
+}
