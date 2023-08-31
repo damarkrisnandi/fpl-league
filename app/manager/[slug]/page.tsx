@@ -18,7 +18,6 @@ export default async function Page(props: any) {
   ];
   //manager.current_event
 
-  console.log(picksFullData);
 
   const positions = [1, 2, 3, 4]
   
