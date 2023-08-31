@@ -4,10 +4,10 @@ export default async function GameWeek() {
     const fixtures = (await getFixtures() as any);
     
 
-    const gameweek = (bootstrap.events.find(data => data.is_current)).id;
+    const gameweek = (bootstrap.events.find((data: any) => data.is_current)).id;
 
-    const currentFixtures = Object.values(fixtures).filter(data => data.event === gameweek);
-    const finishedMatch = currentFixtures.filter(data => data.finished && data.finished_provisional)
+    const currentFixtures = Object.values(fixtures).filter((data: any) => data.event === gameweek);
+    const finishedMatch = currentFixtures.filter((data: any) => data.finished && data.finished_provisional)
 
     const percentage = (finishedMatch.length / currentFixtures.length) * 100;
     return (
