@@ -13,7 +13,7 @@ export default function CardSummary(props: any) {
             <div className={`flex justify-around items-center w-full p-6 ${ color || 'bg-white dark:bg-gray-800' } border border-gray-200 rounded-lg shadow hover:bg-gray-100  dark:border-gray-700 dark:hover:bg-gray-700`}>
                 {/* <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5> */}
                 <div className='mr-10'>
-                    <div className="flex w-full justify-between">
+                    <div className="flex w-full justify-between items-center">
                     <p className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white">{ league }</p>
                     <p className="ml-2 mb-2 text-xl tracking-tight text-gray-900 dark:text-white">{ `#` }{ position }  </p>
                     <Chevron rank={position} last_rank={last_rank}/>
