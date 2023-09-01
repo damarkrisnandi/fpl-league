@@ -1,7 +1,8 @@
 
 import CardSummary from '@/components/layout/cardSummary';
+import MotwCard from '@/components/layout/MotwCard';
 import GameWeek from '@/components/shared/GameWeek';
-import { getBootstrap, getLeagueData } from '@/services'
+import { getBootstrap, getLeagueData, getFixtures } from '@/services'
 import { urlImageAccess } from '@/utils';
 
 export default async function Home() {
@@ -13,7 +14,10 @@ export default async function Home() {
   const leagueSuperId = '633869';
   let standingsSuper: any[] = [];
 
-  const elements = (await getBootstrap() as any).elements;
+  const bootstrap = (await getBootstrap() as any)
+  const fixtures = (await getFixtures() as any);
+
+  const elements = bootstrap.elements;
   
   let leagueA: any = (await getLeagueData(leagueAId, `${page}`));
   standingsA = [...leagueA.standings.results];
@@ -23,6 +27,13 @@ export default async function Home() {
 
   let leagueSuper: any = (await getLeagueData(leagueSuperId, `${page}`));
   standingsSuper = [...leagueSuper.standings.results];
+
+  const gameweek = (bootstrap.events.find((data: any) => data.is_current)).id;
+
+  const currentFixtures = Object.values(fixtures).filter((data: any) => data.event === gameweek);
+  const finishedMatch = currentFixtures.filter((data: any) => data.finished && data.finished_provisional)
+
+  const percentage = (finishedMatch.length / currentFixtures.length) * 100;
   
 
   const dataA = standingsA && standingsA.length > 0 && standingsA.find(o => o.rank === 1);
@@ -31,7 +42,12 @@ export default async function Home() {
   const dataMotwA = standingsA && standingsA.length > 0 && standingsA.find(o => o.event_total === Math.max(...standingsA.map(a => a.event_total)));
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
-      <GameWeek></GameWeek>
+      <GameWeek
+        gameweek={gameweek}
+        percentage={percentage}
+        currentFixtures={currentFixtures}
+        finishedMatch={finishedMatch}
+      ></GameWeek>
       <CardSummary
           // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
           league='League A'
@@ -42,9 +58,10 @@ export default async function Home() {
           points={dataA ? dataA.total : 0}
           id={dataA ? dataA.entry : 'N/A'}
         />
-      <CardSummary
+      <MotwCard
           // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
-          league='MOTW League A'
+          league='League A'
+          gameweek={gameweek}
           position={1}
           last_rank={dataMotwA ? dataMotwA.last_rank : 1}
           team={dataMotwA ? dataMotwA.entry_name : 'N/A'}
