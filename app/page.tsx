@@ -4,7 +4,7 @@ import MotwCard from '@/components/layout/MotwCard';
 import GameWeek from '@/components/shared/GameWeek';
 import { getBootstrap, getLeagueData, getFixtures } from '@/services'
 import { urlImageAccess } from '@/utils';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 export default async function Home() {
   let page = 1;
