@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react"
 import Link from 'next/link'
-import { useRouter } from 'next/router';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 
 export async function getStaticProps() {
