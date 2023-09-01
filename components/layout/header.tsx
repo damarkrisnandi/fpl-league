@@ -32,7 +32,7 @@ export default function HeaderMain(props: any) {
     mapHeader.set('/league-super', ':Super League')
 
   const subtitle = pathname ? mapHeader.get(pathname) || '' : '';
-  
+  const router = useRouter();
   return (
         
 
