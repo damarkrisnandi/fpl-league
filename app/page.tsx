@@ -58,17 +58,19 @@ export default async function Home() {
           points={dataA ? dataA.total : 0}
           id={dataA ? dataA.entry : 'N/A'}
         />
-      <MotwCard
-          // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
-          league='League A'
-          gameweek={gameweek}
-          position={1}
-          last_rank={dataMotwA ? dataMotwA.last_rank : 1}
-          team={dataMotwA ? dataMotwA.entry_name : 'N/A'}
-          manager={dataMotwA ? dataMotwA.player_name : 'N/A'}
-          points={dataMotwA ? dataMotwA.event_total : 0}
-          id={dataMotwA ? dataMotwA.entry : 'N/A'}
-        />
+        { percentage === 100 ? (
+          <MotwCard
+            // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
+            league='League A'
+            gameweek={gameweek}
+            position={1}
+            last_rank={dataMotwA ? dataMotwA.last_rank : 1}
+            team={dataMotwA ? dataMotwA.entry_name : 'N/A'}
+            manager={dataMotwA ? dataMotwA.player_name : 'N/A'}
+            points={dataMotwA ? dataMotwA.event_total : 0}
+            id={dataMotwA ? dataMotwA.entry : 'N/A'}
+          />
+        ) : null}
     <CardSummary 
         // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
         league='League B'
