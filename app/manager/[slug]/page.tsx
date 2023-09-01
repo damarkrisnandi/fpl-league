@@ -22,7 +22,7 @@ export default async function Page(props: any) {
   const positions = [1, 2, 3, 4]
   
   return (
-    <div className=" bg-green-800 dark:bg-green-900 flex flex-col justify-center items-center pt-24 pb-24">
+    <div className="flex flex-col justify-center items-center pt-24 pb-24">
       <a href="#" className="flex flex-col max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-10">
         <h5 className="mb-2 text-3xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{manager.summary_event_points}</h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">points</p>
