@@ -55,24 +55,24 @@ export default function HeaderMain(props: any) {
         <li>
             <Link className={`flex py-2 pl-3 pr-4  text-white rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 
             transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300
-            ${selected === '' && 'font-'}`} href='/' onClick={() => {setSelected(''); isOpen(!open)}}>Home</Link>
+            ${selected === '' && 'font-'}`} href='/' onClick={() => {setSelected(''); isOpen(!open); router.refresh();}}>Home</Link>
           </li>
           <li>
             <Link className={`flex py-2 pl-3 pr-4  text-white rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 
             transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300
-            ${selected === 'league-a' && 'font-'}`} href='/league-a' onClick={() => {setSelected('league-a'); isOpen(!open)}}>League A</Link>
+            ${selected === 'league-a' && 'font-'}`} href='/league-a' onClick={() => {setSelected('league-a'); isOpen(!open); router.refresh();}}>League A</Link>
           </li>
           <li>
             {/* <a href="#" className="flex py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">MOTM</a> */}
             <Link className={`flex py-2 pl-3 pr-4  text-white rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 
             transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300
-            ${selected === 'league-b' && 'font-'}`} href='/league-b' onClick={() => {setSelected('league-b'); isOpen(!open)}}>League B</Link>
+            ${selected === 'league-b' && 'font-'}`} href='/league-b' onClick={() => {setSelected('league-b'); isOpen(!open); router.refresh();}}>League B</Link>
           </li>
           <li>
             {/* <a href="#" className="flex py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">MOTW</a> */}
             <Link className={`flex py-2 pl-3 pr-4  text-white rounde md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 
             transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300
-            ${selected === 'league-super' && 'font-'}`} href='/league-super' onClick={() => {setSelected('league-super'); isOpen(!open)}}>Super League</Link>
+            ${selected === 'league-super' && 'font-'}`} href='/league-super' onClick={() => {setSelected('league-super'); isOpen(!open); router.refresh();}}>Super League</Link>
           </li>
           {/* <li>
             <a href="#" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cup</a>
