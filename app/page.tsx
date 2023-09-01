@@ -4,6 +4,7 @@ import MotwCard from '@/components/layout/MotwCard';
 import GameWeek from '@/components/shared/GameWeek';
 import { getBootstrap, getLeagueData, getFixtures } from '@/services'
 import { urlImageAccess } from '@/utils';
+import { useRouter } from 'next/router'
 
 export default async function Home() {
   let page = 1;
@@ -40,6 +41,10 @@ export default async function Home() {
   const dataB = standingsB && standingsB.length > 0 && standingsB.find(o => o.rank === 1);
   const dataSuper = standingsSuper && standingsSuper.length > 0 && standingsSuper.find(o => o.rank === 1);
   const dataMotwA = standingsA && standingsA.length > 0 && standingsA.find(o => o.event_total === Math.max(...standingsA.map(a => a.event_total)));
+  
+  const router = useRouter()
+  router.refresh()
+  
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
       <GameWeek
