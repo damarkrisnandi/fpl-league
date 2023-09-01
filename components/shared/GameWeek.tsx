@@ -17,7 +17,7 @@ export default async function GameWeek(props: any) {
                 <div className='w-full'>
                 <p className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Gameweek {gameweek}</p>
                 <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                    <div className="bg-fuchsia-700 text-xs font-medium text-blue-100 text-center p-0.5 rounded-full" style={{width: `${percentage <= 15 ? percentage : 8}%`}}>{percentage}%</div>
+                    <div className="bg-fuchsia-700 text-xs font-medium text-blue-100 text-center p-0.5 rounded-full" style={{width: `${percentage <= 15 ? percentage : 8}%`}}>{percentage.toFixed(0)}%</div>
                 </div>
                 </div>
             </div>
