@@ -5,24 +5,17 @@ const headers = {'Content-Type': 'application/json'};
 
 const getResult = (url: string) => {
     const result = new Promise((resolve, reject) => {
-        // fetch(url, {})
-        // .then(data => {
-        //     data.json().then(json => {
-        //         resolve(json)
-        //     })
-        // })
-        // .catch(() => {
-        //     reject('error call axios')
-        // })
-        axios.get(url)
-        .then(function (response) {
-            // handle success
-            resolve(response.data)
+         fetch(url, { cache: 'no-store' })
+         .then(data => {
+             data.json().then(json => {
+                 resolve(json)
+             })
+         })
+         .catch(() => {
+             reject('error call axios')
         })
-        .catch(function (error) {
-            // handle error
-            resolve({ errMessage: error })
-        })
+        
+    
         // .finally(function () {
         //     // always executed
         // });
