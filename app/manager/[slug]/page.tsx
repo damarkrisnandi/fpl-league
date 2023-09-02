@@ -19,7 +19,7 @@ export default async function Page(props: any) {
   //manager.current_event
   let currentPts = 0;
   picksFullData.map(
-    (o: any) => o.event_points * (o.multiplier === 0 ? 1 : o.multiplier)
+    (o: any) => o.event_points * (o.multiplier)
   ).forEach((n: any) => {
     currentPts += n;
   })
@@ -28,9 +28,9 @@ export default async function Page(props: any) {
   
   return (
     <div className="flex flex-col justify-center items-center pt-24 pb-24">
-      <a href="#" className="flex flex-col max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-10">
-        <h5 className="mb-2 text-3xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{currentPts}</h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">points</p>
+      <a href="#" className="flex flex-col max-w-sm p-1 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-5">
+        <h5 className="mb-2 text-xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{currentPts}</h5>
+        <p className="font-normal text-gray-700 dark:text-gray-400">pts</p>
       </a>
       {positions.map((position: any) => (
         <div key={position} className='w-11/12 m-auto flex flex-row items-center justify-center'>
