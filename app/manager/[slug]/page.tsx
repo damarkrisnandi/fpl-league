@@ -55,7 +55,7 @@ export default async function Page(props: any) {
         }
         </div>
       ))}
-      <div  className={`p-2 mt-12 flex items-center justify-center  border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
+      <div  className={`p-2 mt-8 flex items-center justify-center  border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
       {
         [11, 12, 13, 14].map((i: number) => (
           <PlayerCard
