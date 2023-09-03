@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default function (req: NextApiRequest, res: NextApiResponse) {
     console.log(req.url);
-    fetch(`${API_URL}${location.pathname}`, { cache: 'no-store' }).then(data => {
+    fetch(`${API_URL}${location.pathname}`).then(data => {
         data.json().then(data => {
             res.json({ status: 'ok', data });
         })
