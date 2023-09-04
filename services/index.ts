@@ -61,14 +61,14 @@ export const getLeagueData = async (leagueId: string, page: string) => await get
 
 
 
-export const getCurrentLeague = (leagueHistory) => {
+export const getCurrentLeague = (leagueHistory: any) => {
     const currentMonth = (new Date()).getMonth() + 1;
     const currentYear = (new Date()).getFullYear();
     let currentLeague = {}
     if (currentMonth >= 8) {
-        currentLeague = leagueHistory.find(l => l.seasonFrom === currentYear)
+        currentLeague = leagueHistory.find((l: any) => l.seasonFrom === currentYear)
     } else {
-        currentLeague = leagueHistory.find(l => l.seasonUntil === currentYear)
+        currentLeague = leagueHistory.find((l: any) => l.seasonUntil === currentYear)
     }
 
     return {
