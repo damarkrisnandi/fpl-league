@@ -1,12 +1,13 @@
 import CardSecondary from '@/components/layout/carcSec';
 import Card from '@/components/layout/card';
 import DivisionBound from '@/components/layout/divisionBound';
-import { getBootstrap, getLeagueData } from '@/services'
+import { getBootstrap, getLeagueData, getCurrentLeague, leagueHistory } from '@/services'
 import { urlImageAccess } from '@/utils';
 
 export default async function Home() {
+  const currentLeague = getCurrentLeague(leagueHistory)
   let page = 1;
-  const leagueId = '633893';
+  const leagueId = currentLeague.leagueA;
   let standings: any[] = [];
 
   const elements = (await getBootstrap() as any).elements;

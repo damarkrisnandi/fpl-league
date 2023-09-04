@@ -3,16 +3,17 @@ import CardSummary from '@/components/layout/cardSummary';
 import MotwCard from '@/components/layout/MotwCard';
 import GameWeek from '@/components/shared/GameWeek';
 import GwDeadline from '@/components/shared/GwDeadline';
-import { getBootstrap, getLeagueData, getFixtures } from '@/services'
+import { getBootstrap, getLeagueData, getFixtures, getCurrentLeague, leagueHistory } from '@/services'
 import { urlImageAccess } from '@/utils';
 
 export default async function Home() {
+  const currentLeague = getCurrentLeague(leagueHistory)
   let page = 1;
-  const leagueAId = '633893';
+  const leagueAId = currentLeague.leagueA;
   let standingsA: any[] = [];
-  const leagueBId = '633913';
+  const leagueBId = currentLeague.leagueB;
   let standingsB: any[] = [];
-  const leagueSuperId = '633869';
+  const leagueSuperId = currentLeague.leagueSuper;
   let standingsSuper: any[] = [];
 
   const bootstrap = (await getBootstrap() as any)
@@ -46,7 +47,6 @@ export default async function Home() {
 
   const nextGameweekId = nextGameweek.id;
   const nextGameweekDeadline = nextGameweek.deadline_time;
-console.log(nextGameweekId, nextGameweekDeadline)
 
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
