@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {Observable, timer} from 'rxjs';
 import {map, takeUntil} from "rxjs/operators";
 
@@ -24,14 +24,21 @@ export default function GwDeadline(props: any) {
         );
       };
 
-      getTimer(deadline).subscribe((val) => {
+      
+
+      const refreshSubscription = (subscription: any) => {
+        subscription.unsubcribe();
+      }
+    
+    useEffect(() => {
+        let subscription = getTimer(deadline).subscribe((val) => {
         setDay(Math.floor(val / (1000 * 60 * 60 * 24)));
         setHour(Math.floor((val % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
         setMinute(Math.floor((val % (1000 * 60 * 60)) / (1000 * 60)));
         setSecond(Math.floor((val % (1000 * 60)) / 1000));
-      })
-    
-
+        })
+        return () => { refreshSubscription(subscription) }
+    }, [])
 
     return (
         <div className={`flex flex-col items-center justify-between bg-white dark:bg-gray-800 border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
