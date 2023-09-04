@@ -14,7 +14,7 @@ export default async function LeagueStandings(props: any) {
     let league: any = (await getLeagueData(leagueId, `${page}`));
     standings = [...league.standings.results];
 
-    const setColor = (standings, data) => {
+    const setColor = (standings: any[], data: any) => {
         let color = '';
         if (topSize) {
             color+=data.rank <= topSize  ? 'bg-green-200 dark:bg-green-700 ' : (topSize && data.rank == topSize + 1 ? 'bg-yellow-200 dark:bg-yellow-700 ' : 'bg-white dark:bg-gray-700 ')
