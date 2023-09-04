@@ -7,7 +7,7 @@ import { getBootstrap, getLeagueData, getFixtures, getCurrentLeague, leagueHisto
 import { urlImageAccess } from '@/utils';
 
 export default async function Home() {
-  const currentLeague = getCurrentLeague(leagueHistory)
+  const currentLeague: any = getCurrentLeague(leagueHistory)
   let page = 1;
   const leagueAId = currentLeague.leagueA;
   let standingsA: any[] = [];
