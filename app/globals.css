@@ -25,3 +25,10 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.field-bg {
+  background-image: url('fpl_field_2.svg');
+  background-repeat:no-repeat;
+  background-size: 100% 80%;
+  height: 100%;
+}

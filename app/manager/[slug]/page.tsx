@@ -32,45 +32,47 @@ export default async function Page(props: any) {
         <h5 className="mb-1 text-xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{currentPts}</h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">pts</p>
       </a>
-      {positions.map((position: any) => (
-        <div key={position} className='w-11/12 m-auto flex flex-row items-center justify-center'>
+      <div className="flex flex-col justify-center items-center pt-10 field-bg w-full">
+        {positions.map((position: any) => (
+          <div key={position} className='w-11/12 m-auto flex flex-row items-center justify-center'>
+          {
+            picksFullData
+            .slice(0, 11)
+            .filter((data: any) => data.element_type === position)
+            .map(data => (
+              
+                <PlayerCard 
+                  key={data.id}
+                  name={data.web_name}
+                  imgUrl={urlImageAccess(data.photo)}
+                  points={data.event_points}
+                  position={data.element_type}
+                  isCaptain={data.is_captain}
+                  isViceCaptain={data.is_vice_captain}
+                  multiplier={data.multiplier}
+                />
+              
+            ))
+          }
+          </div>
+        ))}
+        <div  className={`p-2 mt-8 flex items-center justify-center  border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
         {
-          picksFullData
-          .slice(0, 11)
-          .filter((data: any) => data.element_type === position)
-          .map(data => (
-            
-              <PlayerCard 
-                key={data.id}
-                name={data.web_name}
-                imgUrl={urlImageAccess(data.photo)}
-                points={data.event_points}
-                position={data.element_type}
-                isCaptain={data.is_captain}
-                isViceCaptain={data.is_vice_captain}
-                multiplier={data.multiplier}
-              />
-            
+          [11, 12, 13, 14].map((i: number) => (
+            <PlayerCard
+              key={i} 
+              name={picksFullData[i].web_name}
+              imgUrl={urlImageAccess(picksFullData[i].photo)}
+              points={picksFullData[i].event_points}
+              position={picksFullData[i].element_type}
+              isCaptain={picksFullData[i].is_captain}
+              isViceCaptain={picksFullData[i].is_vice_captain}
+            />
           ))
         }
-        </div>
-      ))}
-      <div  className={`p-2 mt-8 flex items-center justify-center  border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
-      {
-        [11, 12, 13, 14].map((i: number) => (
-          <PlayerCard
-            key={i} 
-            name={picksFullData[i].web_name}
-            imgUrl={urlImageAccess(picksFullData[i].photo)}
-            points={picksFullData[i].event_points}
-            position={picksFullData[i].element_type}
-            isCaptain={picksFullData[i].is_captain}
-            isViceCaptain={picksFullData[i].is_vice_captain}
-          />
-        ))
-      }
+          
         
-      
+        </div>
       </div>
     </div>
   );
