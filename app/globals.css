@@ -32,3 +32,10 @@ body {
   background-size: 100% 80%;
   height: 100%;
 }
+
+.field-bg-dark {
+  background-image: url('fpl_field_2_darkmode.svg');
+  background-repeat:no-repeat;
+  background-size: 100% 80%;
+  height: 100%;
+}

@@ -32,7 +32,7 @@ export default async function Page(props: any) {
         <h5 className="mb-1 text-xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{currentPts}</h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">pts</p>
       </a>
-      <div className="flex flex-col justify-center items-center pt-10 field-bg w-full">
+      <div className="flex flex-col justify-center items-center pt-10 field-bg dark:field-bg-dark w-full">
         {positions.map((position: any) => (
           <div key={position} className='w-11/12 m-auto flex flex-row items-center justify-center'>
           {
