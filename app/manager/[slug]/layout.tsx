@@ -26,7 +26,6 @@ export default async function ManagerLayout({
         </svg>
         <HeaderMain title={`${manager.name} [${manager.player_first_name} ${manager.player_last_name}]`}/>
         {children}
-        {/* <BottomNav /> */}
       </body>
     </html>
   )

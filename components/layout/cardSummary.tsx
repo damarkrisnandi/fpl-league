@@ -4,10 +4,10 @@ import Chevron from "./chevron";
 import Link from 'next/link'
 
 export default function CardSummary(props: any) {
-    const { league, position, last_rank, team, manager, points, imgUrl, id, color} = props;
+    const { league, position, last_rank, team, manager, points, imgUrl, id, color, league_url} = props;
     return (
         
-        <Link href={`/manager/${id}`} className={`flex flex-col items-center justify-between ${ color || 'bg-white' } border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2`}>
+        <Link href={`${ league_url }`} className={`flex flex-col items-center justify-between ${ color || 'bg-white' } border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2`}>
             {/* <Image className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={imgUrl} alt="" width={150} height={150}/> */}
             
             <div className={`flex justify-around items-center w-full p-6 ${ color || 'bg-white dark:bg-gray-800' } border border-gray-200 rounded-lg shadow hover:bg-gray-100  dark:border-gray-700 dark:hover:bg-gray-700`}>

@@ -60,17 +60,7 @@ export default async function Home() {
         nextGameweekId={nextGameweekId}
         nextGameweekDeadline={nextGameweekDeadline}
       />
-      <CardSummary
-          // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
-          league='League A'
-          position={dataA ? dataA.rank : 1}
-          last_rank={dataA ? dataA.last_rank : 1}
-          team={dataA ? dataA.entry_name : 'N/A'}
-          manager={dataA ? dataA.player_name : 'N/A'}
-          points={dataA ? dataA.total : 0}
-          id={dataA ? dataA.entry : 'N/A'}
-        />
-        { percentage === 100 ? (
+      { percentage === 100 ? (
           <MotwCard
             // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
             league='League A'
@@ -83,8 +73,20 @@ export default async function Home() {
             id={dataMotwA ? dataMotwA.entry : 'N/A'}
           />
         ) : null}
+      <CardSummary
+          // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
+          league_url='/league-a'
+          league='League A'
+          position={dataA ? dataA.rank : 1}
+          last_rank={dataA ? dataA.last_rank : 1}
+          team={dataA ? dataA.entry_name : 'N/A'}
+          manager={dataA ? dataA.player_name : 'N/A'}
+          points={dataA ? dataA.total : 0}
+          id={dataA ? dataA.entry : 'N/A'}
+        />
     <CardSummary 
         // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
+        league_url='/league-b'
         league='League B'
         position={dataB ? dataB.rank : 1}
         last_rank={dataB ? dataB.last_rank : 1}
@@ -96,6 +98,7 @@ export default async function Home() {
 
     <CardSummary 
         // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
+        league_url='/league-super'
         league='Super League'
         position={dataSuper ? dataSuper.rank : 1}
         last_rank={dataSuper ? dataSuper.last_rank : 1}
