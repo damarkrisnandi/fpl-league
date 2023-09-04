@@ -2,6 +2,7 @@
 import CardSummary from '@/components/layout/cardSummary';
 import MotwCard from '@/components/layout/MotwCard';
 import GameWeek from '@/components/shared/GameWeek';
+import GwDeadline from '@/components/shared/GwDeadline';
 import { getBootstrap, getLeagueData, getFixtures } from '@/services'
 import { urlImageAccess } from '@/utils';
 
@@ -41,7 +42,12 @@ export default async function Home() {
   const dataSuper = standingsSuper && standingsSuper.length > 0 && standingsSuper.find(o => o.rank === 1);
   const dataMotwA = standingsA && standingsA.length > 0 && standingsA.find(o => o.event_total === Math.max(...standingsA.map(a => a.event_total)));
 
-  
+  const nextGameweek = (bootstrap.events.find((data: any) => data.is_next)) || (bootstrap.events.find((data: any) => data.is_next));
+
+  const nextGameweekId = nextGameweek.id;
+  const nextGameweekDeadline = nextGameweek.deadline_time;
+console.log(nextGameweekId, nextGameweekDeadline)
+
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
       <GameWeek
@@ -50,6 +56,10 @@ export default async function Home() {
         currentFixtures={currentFixtures}
         finishedMatch={finishedMatch}
       ></GameWeek>
+      <GwDeadline 
+        nextGameweekId={nextGameweekId}
+        nextGameweekDeadline={nextGameweekDeadline}
+      />
       <CardSummary
           // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
           league='League A'
