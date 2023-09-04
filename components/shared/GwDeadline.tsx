@@ -10,7 +10,6 @@ export default function GwDeadline(props: any) {
     const [minute, setMinute] = useState(0);
     const [second, setSecond] = useState(0);
     const { nextGameweekId, nextGameweekDeadline } = props;
-    const deadline = (new Date(nextGameweekDeadline).getTime() - new Date().getTime());
 
     const getTimer = (time: number) => {
         let distance =  time - 1000;
@@ -22,23 +21,25 @@ export default function GwDeadline(props: any) {
             return distance;
           })
         );
-      };
+    };
 
-      
-
-      const refreshSubscription = (subscription: any) => {
+    const refreshSubscription = (subscription: any) => {
         subscription.unsubcribe();
-      }
+    }
     
     useEffect(() => {
+        const deadline = (new Date(nextGameweekDeadline).getTime() - new Date().getTime());
+
         let subscription = getTimer(deadline).subscribe((val) => {
-        setDay(Math.floor(val / (1000 * 60 * 60 * 24)));
-        setHour(Math.floor((val % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-        setMinute(Math.floor((val % (1000 * 60 * 60)) / (1000 * 60)));
-        setSecond(Math.floor((val % (1000 * 60)) / 1000));
+            setDay(Math.floor(val / (1000 * 60 * 60 * 24)));
+            setHour(Math.floor((val % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            setMinute(Math.floor((val % (1000 * 60 * 60)) / (1000 * 60)));
+            setSecond(Math.floor((val % (1000 * 60)) / 1000));
         })
-        return () => { refreshSubscription(subscription) }
-    }, [])
+        return () => { 
+            subscription.unsubscribe() 
+        }
+    })
 
     return (
         <div className={`flex flex-col items-center justify-between bg-white dark:bg-gray-800 border border-gray-200 rounded-lg shadow md:flex-row w-full hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
