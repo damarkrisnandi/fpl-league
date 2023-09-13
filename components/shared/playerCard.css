@@ -48,7 +48,7 @@ body:after {
 	background-position: center center;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+	padding: 1.2rem 0.2rem 0.2rem 0.2rem;
 	z-index: 2;
 	-webkit-transition: 200ms ease-in;
 	-o-transition: 200ms ease-in;

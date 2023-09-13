@@ -27,24 +27,29 @@ export default async function Page(props: any) {
   const positions = [1, 2, 3, 4]
   
   return (
-    <div className="flex flex-col justify-center items-center pt-28 pb-12">
-      <div className="absolute left-1 top-20">
-        <div className="fut-player-card">
+    <div className="flex flex-col justify-center items-center pt-28 pb-4">
+      <div className="absolute left-1 top-10">
+      <PlayerCard 
+        name={manager.name}
+        imgUrl={"https://www.premierleague.com/resources/rebrand/v7.123.11/i/elements/pl-main-logo.png"}
+        points={currentPts}
+      />
+        {/* <div className="fut-player-card">
           <div className="player-card-top flex justify-center">
             <h5 className="mb-1 text-xl font-bold tracking-tight text-center">{currentPts}</h5>
           </div>
           <div className="player-card-bottom flex justify-center">
             <p className="font-normal ">pts</p>
           </div>
-        </div>
+        </div> */}
         {/* <a href="#" className="flex flex-col max-w-sm py-2 px-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mt-5 mb-5">
           <h5 className="mb-1 text-xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{currentPts}</h5>
           <p className="font-normal text-gray-700 dark:text-gray-400">pts</p>
         </a> */}
       </div>
-      <div className="flex flex-col justify-center items-center pt-1 field-bg  w-full">
+      <div className="flex flex-col justify-center items-center pt-20 field-bg w-full">
         {positions.map((position: any) => (
-          <div key={position} className='w-11/12 m-auto flex flex-row items-center justify-center'>
+          <div key={position} className='w-11/12 -m-1 flex flex-row items-center justify-center'>
           {
             picksFullData
             .slice(0, 11)
@@ -66,7 +71,7 @@ export default async function Page(props: any) {
           }
           </div>
         ))}
-        <div  className={`p-2 mt-8 flex items-center justify-center  border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
+        <div  className={`p-2 mt-2 flex items-center justify-center  border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
         {
           [11, 12, 13, 14].map((i: number) => (
             <PlayerCard

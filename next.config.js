@@ -2,7 +2,8 @@
 const nextConfig = {
     images: {
         domains: [
-            'resources.premierleague.com'
+            'resources.premierleague.com',
+            'www.premierleague.com'
         ],
       },
 }
