@@ -27,7 +27,7 @@ export default async function Page(props: any) {
   const positions = [1, 2, 3, 4]
   
   return (
-    <div className="flex flex-col justify-center items-center pt-16 pb-4">
+    <div className="flex flex-col justify-center items-center pt-16 pb-4 manager-page">
       <div className="absolute left-1 top-10">
       <PlayerCard 
         name={manager.name}
