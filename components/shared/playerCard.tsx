@@ -20,11 +20,7 @@ export default function PlayerCard(props: any) {
             <div className="fut-player-card m-1">
                 <div className="player-card-top">
                     <div className="player-master-info">
-                        {isCaptain ? (
-                            <div className="player-position">
-                                <span>[C]</span>
-                            </div>
-                        ) : null}
+                        
                         <div className="player-position">
                             <span>{posMap(position)}</span>
                         </div>
@@ -47,7 +43,8 @@ export default function PlayerCard(props: any) {
                     <div className="player-info">
 
                         <div className="player-name">
-                            <span>{ name }</span>
+                            <span>{ name } {isCaptain ? '[C]' : ''}</span>
+                            
                         </div>
 
                         <div className="player-features">
