@@ -2,7 +2,7 @@ import Image from "next/image";
 import "./playerCard.css"
 
 export default function PlayerCard(props: any) {
-    const { name, position, points, imgUrl, isCaptain, isViceCaptain, multiplier } = props;
+    const { name, position, points, imgUrl, isCaptain, isViceCaptain, multiplier, team, urlTeamImage } = props;
     const posMap = (position: number) => {
         if (position === 1) {
             return 'GKP'
@@ -20,16 +20,19 @@ export default function PlayerCard(props: any) {
             <div className="fut-player-card m-1">
                 <div className="player-card-top">
                     <div className="player-master-info">
-                        {/* <div className="player-rating">
-                            <span>97</span>
-                        </div> */}
+                        {isCaptain ? (
+                            <div className="player-position">
+                                <span>[C]</span>
+                            </div>
+                        ) : null}
                         <div className="player-position">
                             <span>{posMap(position)}</span>
                         </div>
-                        {isCaptain ? (
+                        
+                        {urlTeamImage ? (
                             <div className="player-position">
-                            <span>[C]</span>
-                        </div>
+                                <Image className="w-full h-full rounded-t-lg md:rounded-none md:rounded-l-lg" src={urlTeamImage} alt="" width={30} height={30} priority/>
+                            </div>
                         ) : null}
                     </div>
                     <div className="player-picture">

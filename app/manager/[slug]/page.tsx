@@ -1,6 +1,6 @@
 import PlayerCard from "@/components/shared/playerCard";
 import { getBootstrap, getManagerInfo, getPicksData } from "@/services";
-import { urlImageAccess } from "@/utils";
+import { urlImageAccess, urlTeamImage } from "@/utils";
 
 export default async function Page(props: any) {
   const { params } = props;
@@ -16,6 +16,7 @@ export default async function Page(props: any) {
       ), ...obj}}
     )
   ];
+  const teams:any = bootstrap.teams;
   //manager.current_event
   let currentPts = 0;
   picksFullData.map(
@@ -52,6 +53,15 @@ export default async function Page(props: any) {
           <div key={position} className='w-11/12 -m-2 flex flex-row items-center justify-center'>
           {
             picksFullData
+            .map((data: any) => {
+              const findTeam: any = (teams.find(o => o.id === data.team) as any);
+              if (findTeam) {
+                data.team = findTeam.short_name
+                data.team_code = findTeam.team_code
+                data.urlTeamImage = urlTeamImage(findTeam.code);
+              }
+              return data;
+            })
             .slice(0, 11)
             .filter((data: any) => data.element_type === position)
             .map(data => (
@@ -65,6 +75,7 @@ export default async function Page(props: any) {
                   isCaptain={data.is_captain}
                   isViceCaptain={data.is_vice_captain}
                   multiplier={data.multiplier}
+                  urlTeamImage={data.urlTeamImage}
                 />
               
             ))

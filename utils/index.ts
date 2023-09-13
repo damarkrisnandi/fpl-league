@@ -4,6 +4,8 @@ export const API_URL = 'https://fantasy.premierleague.com';
 
 export const urlImageAccess = (fileName: string) => `https://resources.premierleague.com/premierleague/photos/players/250x250/p${fileName.replace('.jpg', '.png')}`;
 
+export const urlTeamImage = (team_code: any) => `https://resources.premierleague.com/premierleague/badges/70/t${team_code}.png`;
+
 const cors = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'OPTIONS, GET',
