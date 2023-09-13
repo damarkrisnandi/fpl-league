@@ -53,15 +53,6 @@ export default async function Page(props: any) {
           <div key={position} className='w-11/12 -m-2 flex flex-row items-center justify-center'>
           {
             picksFullData
-            .map((data: any) => {
-              const findTeam: any = (teams.find((o: any) => o.id === data.team) as any);
-              if (findTeam) {
-                data.team = findTeam.short_name
-                data.team_code = findTeam.team_code
-                data.urlTeamImage = urlTeamImage(findTeam.code);
-              }
-              return data;
-            })
             .slice(0, 11)
             .filter((data: any) => data.element_type === position)
             .map(data => (
@@ -75,7 +66,7 @@ export default async function Page(props: any) {
                   isCaptain={data.is_captain}
                   isViceCaptain={data.is_vice_captain}
                   multiplier={data.multiplier}
-                  urlTeamImage={data.urlTeamImage}
+                  urlTeamImage={urlTeamImage(data.team_code)}
                 />
               
             ))
@@ -84,7 +75,8 @@ export default async function Page(props: any) {
         ))}
         <div  className={`p-2 mt-2 flex items-center justify-center  border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700  dark:hover:bg-gray-700 mb-2`}>
         {
-          [11, 12, 13, 14].map((i: number) => (
+          [11, 12, 13, 14]
+          .map((i: number) => (
             <PlayerCard
               key={i} 
               name={picksFullData[i].web_name}
@@ -93,6 +85,7 @@ export default async function Page(props: any) {
               position={picksFullData[i].element_type}
               isCaptain={picksFullData[i].is_captain}
               isViceCaptain={picksFullData[i].is_vice_captain}
+              urlTeamImage={urlTeamImage(picksFullData[i].team_code)}
             />
           ))
         }
