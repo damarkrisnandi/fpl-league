@@ -27,7 +27,7 @@ export default async function Page(props: any) {
   const positions = [1, 2, 3, 4]
   
   return (
-    <div className="flex flex-col justify-center items-center pt-28 pb-4">
+    <div className="flex flex-col justify-center items-center pt-16 pb-4">
       <div className="absolute left-1 top-10">
       <PlayerCard 
         name={manager.name}
@@ -47,9 +47,9 @@ export default async function Page(props: any) {
           <p className="font-normal text-gray-700 dark:text-gray-400">pts</p>
         </a> */}
       </div>
-      <div className="flex flex-col justify-center items-center pt-20 field-bg w-full">
+      <div className="flex flex-col justify-center items-center pt-4 field-bg w-full">
         {positions.map((position: any) => (
-          <div key={position} className='w-11/12 -m-1 flex flex-row items-center justify-center'>
+          <div key={position} className='w-11/12 -m-2 flex flex-row items-center justify-center'>
           {
             picksFullData
             .slice(0, 11)
