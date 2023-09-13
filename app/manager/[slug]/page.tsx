@@ -27,8 +27,8 @@ export default async function Page(props: any) {
   const positions = [1, 2, 3, 4]
   
   return (
-    <div className="flex flex-col justify-center items-center pt-16 pb-12">
-      <div className="pt-40">
+    <div className="flex flex-col justify-center items-center pt-28 pb-12">
+      <div className="absolute left-1 top-20">
         <div className="fut-player-card">
           <div className="player-card-top flex justify-center">
             <h5 className="mb-1 text-xl font-bold tracking-tight text-center">{currentPts}</h5>

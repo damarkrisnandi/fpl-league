@@ -17,7 +17,7 @@ export default function PlayerCard(props: any) {
     }
     return (
         <div>
-            <div className="fut-player-card">
+            <div className="fut-player-card m-1">
                 <div className="player-card-top">
                     <div className="player-master-info">
                         {/* <div className="player-rating">
