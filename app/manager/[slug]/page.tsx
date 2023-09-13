@@ -28,11 +28,21 @@ export default async function Page(props: any) {
   
   return (
     <div className="flex flex-col justify-center items-center pt-16 pb-12">
-      <a href="#" className="flex flex-col max-w-sm py-2 px-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-5">
-        <h5 className="mb-1 text-xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{currentPts}</h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">pts</p>
-      </a>
-      <div className="flex flex-col justify-center items-center pt-1 bg-[url('fpl_field_2.svg')] dark:bg-[url('fpl_field_2_darkmode.svg')] field-bg  w-full">
+      <div className="pt-16">
+      <div className="fut-player-card">
+                <div className="player-card-top flex justify-center">
+                  <h5 className="mb-1 text-xl font-bold tracking-tight text-center">{currentPts}</h5>
+                </div>
+                <div className="player-card-bottom flex justify-center">
+                  <p className="font-normal ">pts</p>
+                </div>
+            </div>
+        {/* <a href="#" className="flex flex-col max-w-sm py-2 px-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mt-5 mb-5">
+          <h5 className="mb-1 text-xl font-bold tracking-tight text-center text-gray-900 dark:text-white">{currentPts}</h5>
+          <p className="font-normal text-gray-700 dark:text-gray-400">pts</p>
+        </a> */}
+      </div>
+      <div className="flex flex-col justify-center items-center pt-1 field-bg  w-full">
         {positions.map((position: any) => (
           <div key={position} className='w-11/12 m-auto flex flex-row items-center justify-center'>
           {
