@@ -49,7 +49,8 @@ body:after {
 	width: 18vw;
     max-width: 18vw;
 	/* height: 485px; */
-	background-image: url(https://selimdoyranli.com/cdn/fut-player-card/img/card_bg.png);
+	/* background-image: url(https://selimdoyranli.com/cdn/fut-player-card/img/card_bg.png); */
+    background-image: url(../../app/images/fut_fplmgm.png);
 	background-position: center center;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
