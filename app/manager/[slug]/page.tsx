@@ -54,7 +54,7 @@ export default async function Page(props: any) {
           {
             picksFullData
             .map((data: any) => {
-              const findTeam: any = (teams.find(o => o.id === data.team) as any);
+              const findTeam: any = (teams.find((o: any) => o.id === data.team) as any);
               if (findTeam) {
                 data.team = findTeam.short_name
                 data.team_code = findTeam.team_code
