@@ -3,7 +3,7 @@ import "./playerCard.css"
 
 export default function PlayerCard(props: any) {
     const { name, position, points, imgUrl, isCaptain, isViceCaptain, multiplier } = props;
-    const posMap = (position) => {
+    const posMap = (position: number) => {
         if (position === 1) {
             return 'GKP'
         } else if (position === 2) {
