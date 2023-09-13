@@ -43,7 +43,7 @@ export default async function Home() {
 
   const phases = bootstrap.phases;
   const currentPhase = phases.filter((p: any) => p.start_event <= gameweek && gameweek <= p.stop_event);
-  const previousPhase = phases.filter((p: any) => p.start_event <= (gameweek-1) && (gameweek-1) <= p.stop_event);
+  const previousPhase = phases.filter((p: any) => [1, currentPhase[1].id - 1].includes(p.id));
   
   let leagueAPhase: any = (await getLeagueDataPerPhase(leagueAId, `${previousPhase[1].id}`,`${page}`));
   standingsAPhase = [...leagueAPhase.standings.results];
