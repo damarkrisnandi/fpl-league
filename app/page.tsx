@@ -45,11 +45,11 @@ export default async function Home() {
   const currentPhase = phases.filter((p: any) => p.start_event <= gameweek && gameweek <= p.stop_event);
   const previousPhase = phases.filter((p: any) => [1, currentPhase[1].id - 1].includes(p.id));
   
-  let leagueAPhase: any = (await getLeagueDataPerPhase(leagueAId, `${previousPhase[1].id}`,`${page}`));
+  let leagueAPhase: any = (await getLeagueDataPerPhase(leagueAId, `${currentPhase[1].id}`,`${page}`));
   standingsAPhase = [...leagueAPhase.standings.results];
-  let leagueBPhase: any = (await getLeagueDataPerPhase(leagueBId, `${previousPhase[1].id}`,`${page}`));
+  let leagueBPhase: any = (await getLeagueDataPerPhase(leagueBId, `${currentPhase[1].id}`,`${page}`));
   standingsBPhase = [...leagueBPhase.standings.results];
-  let leagueSuperPhase: any = (await getLeagueDataPerPhase(leagueSuperId, `${previousPhase[1].id}`,`${page}`));
+  let leagueSuperPhase: any = (await getLeagueDataPerPhase(leagueSuperId, `${currentPhase[1].id}`,`${page}`));
   standingsSuperPhase = [...leagueSuperPhase.standings.results];
 
   const dataA = standingsA && standingsA.length > 0 && standingsA.find(o => o.rank === 1);
@@ -92,7 +92,7 @@ export default async function Home() {
           />
           <MotmCard
             league={dataMotmA.entry == dataMotmSuper.entry ? 'League A & Super League' : 'League A'}
-            month={previousPhase[1].name}
+            month={currentPhase[1].name}
             gameweek={gameweek}
             position={1}
             last_rank={dataMotmA ? dataMotmA.last_rank : 1}
@@ -103,7 +103,7 @@ export default async function Home() {
           />
           <MotmCard
             league={dataMotmB.entry == dataMotmSuper.entry ? 'League B & Super League' : 'League B'}
-            month={previousPhase[1].name}
+            month={currentPhase[1].name}
             gameweek={gameweek}
             position={1}
             last_rank={dataMotmB ? dataMotmB.last_rank : 1}
