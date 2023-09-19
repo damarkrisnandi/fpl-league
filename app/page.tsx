@@ -78,7 +78,7 @@ export default async function Home() {
         nextGameweekDeadline={nextGameweekDeadline}
       />
       { percentage === 100 ? (
-        <div>
+        <div className="w-full">
           <MotwCard
             // imgUrl={urlImageAccess(elements[Math.floor(Math.random() * 500)].photo)}
             league='League A'
