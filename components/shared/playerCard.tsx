@@ -1,8 +1,11 @@
+'use client'
 import Image from "next/image";
 import "./playerCard.css"
+import { useEffect, useState } from "react";
 
 export default function PlayerCard(props: any) {
-    const { name, position, points, imgUrl, isCaptain, isViceCaptain, multiplier, team, urlTeamImage } = props;
+    const [show, setShow] = useState(false);
+    const { name, position, points, imgUrl, isCaptain, isViceCaptain, multiplier, team, urlTeamImage, delay } = props;
     const posMap = (position: number) => {
         if (position === 1) {
             return 'GKP'
@@ -15,10 +18,18 @@ export default function PlayerCard(props: any) {
         } 
         return '';
     }
+    useEffect(() => {
+        if (!show) {
+            setTimeout(() => {
+                setShow(true);
+            }, !delay ? 500 : delay * 120)
+
+        }
+    })
     return (
         <div>
             
-            <div className="items-center w-16 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md">
+            <div className={`items-center w-16 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter transition-all ease-in-out duration-700 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'} `}>
                 {isCaptain ? (
                     <span className="absolute bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-1 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">C</span>
                 ) : (<></>)}

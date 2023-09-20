@@ -55,7 +55,7 @@ export default async function Page(props: any) {
             picksFullData
             .slice(0, 11)
             .filter((data: any) => data.element_type === position)
-            .map(data => (
+            .map((data, idx) => (
               
                 <PlayerCard 
                   key={data.id}
@@ -67,6 +67,7 @@ export default async function Page(props: any) {
                   isViceCaptain={data.is_vice_captain}
                   multiplier={data.multiplier}
                   urlTeamImage={urlTeamImage(data.team_code)}
+                  delay={data.position}
                 />
               
             ))
@@ -86,6 +87,7 @@ export default async function Page(props: any) {
               isCaptain={picksFullData[i].is_captain}
               isViceCaptain={picksFullData[i].is_vice_captain}
               urlTeamImage={urlTeamImage(picksFullData[i].team_code)}
+              delay={picksFullData[i].position}
             />
           ))
         }
