@@ -29,7 +29,7 @@ export default async function Page(props: any) {
   
   return (
     <div className="flex flex-col justify-center items-center pt-16 pb-4 manager-page">
-      <div className="absolute left-1 top-24">
+      <div className="absolute left-1 lg:left-28 top-24">
         <div className={`items-center w-24 lg:w-32 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
             <h1 className="text-3xl text-center font-semibold text-white">
               {currentPts}
