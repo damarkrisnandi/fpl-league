@@ -29,12 +29,20 @@ export default async function Page(props: any) {
   
   return (
     <div className="flex flex-col justify-center items-center pt-16 pb-4 manager-page">
-      <div className="absolute left-1 top-10">
-      <PlayerCard 
+      <div className="absolute left-1 top-24">
+        <div className={`items-center w-24 lg:w-32 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
+            <h1 className="text-3xl text-center font-semibold text-white">
+              {currentPts}
+            </h1>
+            <div className={`p-1 flex flex-col justify-center items-center bg-white border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
+                <p className="text-xs font-light tracking-tight text-gray-900 dark:text-white whitespace-nowrap text-ellipsis overflow-hidden w-full text-center">{ manager.name }</p>
+            </div>
+        </div>
+      {/* <PlayerCard 
         name={manager.name}
         imgUrl={"https://www.premierleague.com/resources/rebrand/v7.123.11/i/elements/pl-main-logo.png"}
         points={currentPts}
-      />
+      /> */}
         {/* <div className="fut-player-card">
           <div className="player-card-top flex justify-center">
             <h5 className="mb-1 text-xl font-bold tracking-tight text-center">{currentPts}</h5>
