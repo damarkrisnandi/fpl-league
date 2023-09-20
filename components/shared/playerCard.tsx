@@ -39,7 +39,7 @@ export default function PlayerCard(props: any) {
                     </span>
                 ) : null}
                 <Image className="w-full h-full p-0 pb-0 rounded-t-lg md:rounded-none md:rounded-l-lg z-10" src={imgUrl} alt="" width={150} height={150}/>
-                <div className={`p-1 flex flex-col justify-center items-center ${isCaptain ? 'bg-yellow-100' : 'bg-white'} border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
+                <div className={`p-0.5 flex flex-col justify-center items-center ${isCaptain ? 'bg-yellow-100' : 'bg-white'} border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
                     <p className="text-xs font-light tracking-tight text-gray-900 dark:text-white whitespace-nowrap text-ellipsis overflow-hidden w-full text-center">{ name }</p>
                     <h5 className="text-xs font-bold tracking-tight text-gray-900 dark:text-white">{ points * (isCaptain ? (multiplier === 3 ? 3 : 2) : 1) }</h5>
                     
