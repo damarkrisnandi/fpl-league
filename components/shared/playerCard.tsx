@@ -34,8 +34,8 @@ export default function PlayerCard(props: any) {
                     <span className="absolute bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-1 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">C</span>
                 ) : (<></>)}
                 {urlTeamImage ? (
-                    <span className="absolute text-xs font-medium right-0 px-1 py-0.5 rounded">
-                        <Image className="w-full h-full p-0 pb-0 rounded-t-lg md:rounded-none md:rounded-l-lg -z-10" src={urlTeamImage} alt="" width={16} height={20}/>
+                    <span className="absolute text-xs font-medium right-0 p-2 lg:p-4 mr-1 rounded">
+                        <Image className="w-full h-full p-0 pb-0 rounded-t-lg md:rounded-none md:rounded-l-lg -z-10" src={urlTeamImage} alt="" fill={true}/>
                     </span>
                 ) : null}
                 <Image className="w-full h-full p-0 pb-0 rounded-t-lg md:rounded-none md:rounded-l-lg z-10" src={imgUrl} alt="" width={150} height={150}/>
