@@ -6,6 +6,7 @@ import GameWeek from '@/components/shared/GameWeek';
 import GwDeadline from '@/components/shared/GwDeadline';
 import { getBootstrap, getLeagueData, getFixtures, getCurrentLeague, leagueHistory, getLeagueDataPerPhase } from '@/services'
 import { urlImageAccess } from '@/utils';
+import Month from '@/components/shared/Month';
 
 export default async function Home() {
   const currentLeague: any = getCurrentLeague(leagueHistory)
@@ -44,6 +45,8 @@ export default async function Home() {
   const phases = bootstrap.phases;
   const currentPhase = phases.filter((p: any) => p.start_event <= gameweek && gameweek <= p.stop_event);
   const previousPhase = phases.filter((p: any) => [1, currentPhase[1].id - 1].includes(p.id));
+
+  const monthPercentage = ((gameweek - currentPhase[1].start_event + 1) / (currentPhase[1].stop_event - currentPhase[1].start_event + 1)) * 100;
   
   let leagueAPhase: any = (await getLeagueDataPerPhase(leagueAId, `${currentPhase[1].id}`,`${page}`));
   standingsAPhase = [...leagueAPhase.standings.results];
@@ -73,6 +76,10 @@ export default async function Home() {
         currentFixtures={currentFixtures}
         finishedMatch={finishedMatch}
       ></GameWeek>
+      <Month
+        month={currentPhase[1].name}
+        percentage={monthPercentage}
+      />
       <GwDeadline 
         nextGameweekId={nextGameweekId}
         nextGameweekDeadline={nextGameweekDeadline}
