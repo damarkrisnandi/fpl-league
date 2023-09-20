@@ -35,7 +35,7 @@ export default async function Page(props: any) {
             </h1>
         </div>
         { phaseEvts.map((evt:any) => (
-            <div className="flex">
+            <div className="flex" key={evt.event}>
                 <div className={`items-center w-24 lg:w-32 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
                     <h1 className="text-3xl text-center font-semibold text-white">
                     {evt.event}
