@@ -29,41 +29,44 @@ export default async function Page(props: any) {
                 { manager.name } ({ manager.player_first_name } { manager.player_last_name })
             </h1>
         </div>
-        <div className={`items-center w-11/12 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
-            <h1 className="text-md text-center font-semibold text-white">
-                Recap: {currentPhase[1].name} ({manager.current_event - currentPhase[1].start_event + 1}/{currentPhase[1].stop_event - currentPhase[1].start_event + 1})
-            </h1>
-        </div>
-        { phaseEvts.map((evt:any) => (
-            <div className="flex" key={evt.event}>
-                <div className={`items-center w-24 lg:w-32 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
-                    <h1 className="text-3xl text-center font-semibold text-white">
-                    {evt.event}
-                    </h1>
-                    <div className={`p-1 flex flex-col justify-center items-center bg-white border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
-                        <p className="text-xs font-light tracking-tight text-gray-900 dark:text-white whitespace-nowrap text-ellipsis overflow-hidden w-full text-center">Gameweek</p>
-                    </div>
-                </div>
-
-                <div className={`items-center w-24 lg:w-32 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
-                    <h1 className="text-3xl text-center font-semibold text-white">
-                    {evt.points}
-                    </h1>
-                    <div className={`p-1 flex flex-col justify-center items-center bg-white border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
-                        <p className="text-xs font-light tracking-tight text-gray-900 dark:text-white whitespace-nowrap text-ellipsis overflow-hidden w-full text-center">Points</p>
-                    </div>
-                </div>
-            
-                <div className={`items-center w-24 lg:w-32 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
-                    <h1 className="text-3xl text-center font-semibold text-white">
-                    {evt.event_transfers}({0 - evt.event_transfers_cost})
-                    </h1>
-                    <div className={`p-1 flex flex-col justify-center items-center bg-white border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
-                        <p className="text-xs font-light tracking-tight text-gray-900 dark:text-white whitespace-nowrap text-ellipsis overflow-hidden w-full text-center">Transfers</p>
-                    </div>
-                </div>
+        <div className="w-11/12">
+            <div className={`items-center w-full m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
+                <h1 className="text-md text-center font-semibold text-white">
+                    Recap: {currentPhase[1].name} ({manager.current_event - currentPhase[1].start_event + 1}/{currentPhase[1].stop_event - currentPhase[1].start_event + 1})
+                </h1>
             </div>
-        )) }
+            { phaseEvts.map((evt:any) => (
+                <div className="flex" key={evt.event}>
+                    <div className={`items-center w-24 lg:w-1/6 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
+                        <h1 className="text-3xl text-center font-semibold text-white">
+                        {evt.event}
+                        </h1>
+                        <div className={`p-1 flex flex-col justify-center items-center bg-white border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
+                            <p className="text-xs font-light tracking-tight text-gray-900 dark:text-white whitespace-nowrap text-ellipsis overflow-hidden w-full text-center">Gameweek</p>
+                        </div>
+                    </div>
+
+                    <div className={`items-center w-32 lg:w-5/12 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
+                        <h1 className="text-3xl text-center font-semibold text-white">
+                        {evt.points}
+                        </h1>
+                        <div className={`p-1 flex flex-col justify-center items-center bg-white border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
+                            <p className="text-xs font-light tracking-tight text-gray-900 dark:text-white whitespace-nowrap text-ellipsis overflow-hidden w-full text-center">Points</p>
+                        </div>
+                    </div>
+                
+                    <div className={`items-center w-32 lg:w-5/12 m-0.5 mr-0 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
+                        <h1 className="text-3xl text-center font-semibold text-white">
+                        {evt.event_transfers}({0 - evt.event_transfers_cost})
+                        </h1>
+                        <div className={`p-1 flex flex-col justify-center items-center bg-white border border-gray-200 shadow rounded-t-none rounded-b-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}>
+                            <p className="text-xs font-light tracking-tight text-gray-900 dark:text-white whitespace-nowrap text-ellipsis overflow-hidden w-full text-center">Transfers</p>
+                        </div>
+                    </div>
+                </div>
+            )) }
+
+        </div>
         </div>
     </div>
   );
