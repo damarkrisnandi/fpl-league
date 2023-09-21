@@ -16,10 +16,10 @@ export default async function Page(props: any) {
   const currentPhase = phases.filter((p: any) => p.start_event <= manager.current_event && manager.current_event <= p.stop_event);
 
   const history: any = await getManagerHistory(props.params.slug);
-
-  const chipsUsed: any[] = history.chips;
-
+  
   const phaseEvts = history.current.filter((h: any) => h.event >= currentPhase[1].start_event && h.event <= currentPhase[1].stop_event)
+  
+  const chipsUsed: any[] = history.chips;
 
   const chipsMap: Map<string, string> = new Map<string, string>();
   chipsMap.set('bboost', 'Bench Boost Activated');
@@ -42,8 +42,8 @@ export default async function Page(props: any) {
                 </h1>
             </div>
             { phaseEvts.map((evt:any) => (
-                <div className="w-full">
-                    <div className="flex" key={evt.event}>
+                <div className="w-full" key={evt.event}>
+                    <div className="flex">
                         <div className={`items-center w-24 lg:w-1/6 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
                             <h1 className="text-3xl text-center font-semibold text-white">
                             {evt.event}
@@ -76,7 +76,7 @@ export default async function Page(props: any) {
                         chipsUsed.find(c => c.event === evt.event) ? (
                             <div className={`items-center w-full m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
                                 <h1 className="text-sm text-center text-white">
-                                    GW{evt.event} {chipsMap.get(chipsUsed.find(c => c.event === evt.event))}
+                                    GW{evt.event} { chipsMap.get(chipsUsed.find(c => c.event === evt.event).name) }
                                 </h1>
                             </div>
                         ) : null

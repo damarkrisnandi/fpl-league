@@ -31,6 +31,15 @@ export default async function Page(props: any) {
 
   const currentEvt = history.current.find((c: any) => c.event === manager.current_event);
 
+  const chipsUsed: any[] = history.chips;
+
+  const chipsMap: Map<string, string> = new Map<string, string>();
+  chipsMap.set('bboost', 'Bench Boost Activated');
+  chipsMap.set('3xc', 'Triple Captain Activated');
+  chipsMap.set('freehit', 'Freehit Activated');
+  chipsMap.set('wildcard', 'Wildcard Activated');
+
+  console.log(chipsUsed.find(c => c.event === currentEvt.event));
   
   return (
     <div className="flex flex-col justify-center items-center pt-16 pb-4 manager-page">
@@ -108,6 +117,15 @@ export default async function Page(props: any) {
         
         </div>
       </div>
+      {
+        chipsUsed.find(c => c.event === currentEvt.event) ? (
+            <div className={`items-center w-11/12 m-0.5 p-0.5  pt-2 bg-gradient-to-br from-blue-500 to-purple-700 rounded-md first-letter first-letter`}>
+                <h1 className="text-sm text-center text-white">
+                    { chipsMap.get(chipsUsed.find(c => c.event === currentEvt.event).name) }
+                </h1>
+            </div>
+        ) : null
+      }
     </div>
   );
 }
