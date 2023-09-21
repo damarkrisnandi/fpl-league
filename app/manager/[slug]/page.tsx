@@ -63,7 +63,7 @@ export default async function Page(props: any) {
       </div>
       <div className="flex flex-col justify-center items-center pt-4 field-bg w-full">
         {positions.map((position: any) => (
-          <div key={position} className='w-11/12 -m-1 flex flex-row items-center justify-center'>
+          <div key={position} className='w-11/12 m-1 flex flex-row items-center justify-center'>
           {
             picksFullData
             .slice(0, 11)
