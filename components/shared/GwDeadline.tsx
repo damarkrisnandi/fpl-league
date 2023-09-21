@@ -10,6 +10,7 @@ export default function GwDeadline(props: any) {
     const [minute, setMinute] = useState(0);
     const [second, setSecond] = useState(0);
     const [width, setWidth] = useState(0);
+    const [color, setColor] = useState('bg-green-700')
     const { nextGameweekId, nextGameweekDeadline, prevGameweekDeadline } = props;
 
     const getTimer = (time: number) => {
@@ -33,7 +34,14 @@ export default function GwDeadline(props: any) {
             setHour(Math.floor((val % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
             setMinute(Math.floor((val % (1000 * 60 * 60)) / (1000 * 60)));
             setSecond(Math.floor((val % (1000 * 60)) / 1000));
-            setWidth(((duration - val)*100)/duration)
+            setWidth(((duration - val)*100)/duration);
+            if (width >= 70 && width < 90) {
+                setColor('bg-yellow-600');
+            } else if (width >= 90) {
+                setColor('bg-amber-700');
+            } else {
+                setColor('bg-green-700')
+            }
         })
         return () => { 
             subscription.unsubscribe() 
@@ -46,8 +54,8 @@ export default function GwDeadline(props: any) {
                 <div className='w-full'>
                 <p className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Deadline: Gameweek {nextGameweekId}</p>
                 <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                    <div className="bg-green-700 text-xs font-medium text-blue-100 text-center p-0.5 rounded-full transition-all duration-700 
-                ease-out truncate" style={{width: `${width}%`}}>{ day } d { hour } h { minute } m { second } s</div>
+                    <div className={`${color} text-xs font-medium text-blue-100 text-center p-0.5 rounded-full transition-all duration-700 
+                ease-out truncate`} style={{width: `${width}%`}}>{ day } d { hour } h { minute } m { second } s</div>
                 </div>
                 </div>
             </div>
