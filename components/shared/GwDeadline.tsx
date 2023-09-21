@@ -9,7 +9,8 @@ export default function GwDeadline(props: any) {
     const [hour, setHour] = useState(0);
     const [minute, setMinute] = useState(0);
     const [second, setSecond] = useState(0);
-    const { nextGameweekId, nextGameweekDeadline } = props;
+    const [width, setWidth] = useState(0);
+    const { nextGameweekId, nextGameweekDeadline, prevGameweekDeadline } = props;
 
     const getTimer = (time: number) => {
         let distance =  time - 1000;
@@ -22,19 +23,17 @@ export default function GwDeadline(props: any) {
           })
         );
     };
-
-    const refreshSubscription = (subscription: any) => {
-        subscription.unsubcribe();
-    }
     
     useEffect(() => {
         const deadline = (new Date(nextGameweekDeadline).getTime() - new Date().getTime());
+        const duration = (new Date(nextGameweekDeadline).getTime() - new Date(prevGameweekDeadline).getTime());
 
         let subscription = getTimer(deadline).subscribe((val) => {
             setDay(Math.floor(val / (1000 * 60 * 60 * 24)));
             setHour(Math.floor((val % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
             setMinute(Math.floor((val % (1000 * 60 * 60)) / (1000 * 60)));
             setSecond(Math.floor((val % (1000 * 60)) / 1000));
+            setWidth(((duration - val)*100)/duration)
         })
         return () => { 
             subscription.unsubscribe() 
@@ -47,7 +46,8 @@ export default function GwDeadline(props: any) {
                 <div className='w-full'>
                 <p className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Deadline: Gameweek {nextGameweekId}</p>
                 <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                    <div className="bg-green-700 text-xs font-medium text-blue-100 text-center p-0.5 rounded-full" style={{width: `100%`}}>{ day } d { hour } h { minute } m { second } s</div>
+                    <div className="bg-green-700 text-xs font-medium text-blue-100 text-center p-0.5 rounded-full transition-all duration-700 
+                ease-out truncate" style={{width: `${width}%`}}>{ day } d { hour } h { minute } m { second } s</div>
                 </div>
                 </div>
             </div>

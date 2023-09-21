@@ -67,6 +67,7 @@ export default async function Home() {
 
   const nextGameweekId = nextGameweek.id;
   const nextGameweekDeadline = nextGameweek.deadline_time;
+  const prevGameweekDeadline = (bootstrap.events.find((data: any) => data.is_current)).deadline_time;
 
   return (
     <main className='w-11/12 m-auto flex flex-col items-center pt-24 pb-24'>
@@ -83,6 +84,7 @@ export default async function Home() {
       <GwDeadline 
         nextGameweekId={nextGameweekId}
         nextGameweekDeadline={nextGameweekDeadline}
+        prevGameweekDeadline={prevGameweekDeadline}
       />
       { percentage === 100 ? (
         <div className="w-full">
