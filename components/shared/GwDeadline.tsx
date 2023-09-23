@@ -37,7 +37,7 @@ export default function GwDeadline(props: any) {
             setWidth(((duration - val)*100)/duration);
             if (width >= 70 && width < 90) {
                 setColor('bg-yellow-600');
-            } else if (width >= 90) {
+            } else if (width >= 90 && width < 100) {
                 setColor('bg-amber-700');
             } else {
                 setColor('bg-green-700')
