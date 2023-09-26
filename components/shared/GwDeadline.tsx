@@ -30,11 +30,11 @@ export default function GwDeadline(props: any) {
         const duration = (new Date(nextGameweekDeadline).getTime() - new Date(prevGameweekDeadline).getTime());
 
         let subscription = getTimer(deadline).subscribe((val) => {
-            setDay(Math.floor(val / (1000 * 60 * 60 * 24)));
-            setHour(Math.floor((val % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            setMinute(Math.floor((val % (1000 * 60 * 60)) / (1000 * 60)));
-            setSecond(Math.floor((val % (1000 * 60)) / 1000));
             if (val >= 0) {
+                setDay(Math.floor(val / (1000 * 60 * 60 * 24)));
+                setHour(Math.floor((val % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+                setMinute(Math.floor((val % (1000 * 60 * 60)) / (1000 * 60)));
+                setSecond(Math.floor((val % (1000 * 60)) / 1000));
                 setWidth(((duration - val)*100)/duration);
             }
             if (width >= 70 && width < 90) {
