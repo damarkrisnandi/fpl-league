@@ -34,7 +34,9 @@ export default function GwDeadline(props: any) {
             setHour(Math.floor((val % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
             setMinute(Math.floor((val % (1000 * 60 * 60)) / (1000 * 60)));
             setSecond(Math.floor((val % (1000 * 60)) / 1000));
-            setWidth(((duration - val)*100)/duration);
+            if (val >= 0) {
+                setWidth(((duration - val)*100)/duration);
+            }
             if (width >= 70 && width < 90) {
                 setColor('bg-yellow-600');
             } else if (width >= 90) {
@@ -55,7 +57,7 @@ export default function GwDeadline(props: any) {
                 <p className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Deadline: Gameweek {nextGameweekId}</p>
                 <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
                     <div className={`${color} text-xs font-medium text-blue-100 text-center p-0.5 rounded-full transition-all duration-700 
-                ease-out truncate`} style={{width: `${width}%`}}>{ day } d { hour } h { minute } m { second } s</div>
+                ease-out truncate`} style={{width: `${ width && width < 40 ? 40 : width }%`}}>{ day } d { hour } h { minute } m { second } s</div>
                 </div>
                 </div>
             </div>
